@@ -1,0 +1,8 @@
+{
+  "name": "teamvault",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Privacy-first encrypted collaboration workspace demo",
+  "scripts": { "start": "node server.js" },
+  "engines": { "node": ">=20" }
+}

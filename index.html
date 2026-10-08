@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f7f5"><title>TeamVault — Secure workspace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#"><span class="brand-mark"><svg viewBox="0 0 32 32"><path d="M9 8.5 16 4l7 4.5v8L16 21l-7-4.5z"/><path d="m9 16.5 7 4.5 7-4.5M16 21v7m-7-4.5 7 4.5 7-4.5"/></svg></span><span>teamvault<span class="brand-dot">.</span><small>SECURE WORKSPACE</small></span></a>
+    <div class="workspace-switch"><div class="workspace-glyph">N</div><div class="workspace-info"><strong>Northstar Health</strong><span>Workspace</span></div><span class="chevron">⌄</span></div>
+    <div class="nav-label">WORKSPACE</div>
+    <nav class="main-nav"><button class="nav-item active" data-view="overview"><span class="nav-icon">▦</span>Overview</button><button class="nav-item" data-view="files"><span class="nav-icon">▤</span>Files <span class="nav-count" id="fileCount">04</span></button><button class="nav-item" data-view="vault"><span class="nav-icon">⬡</span>Resource library</button><button class="nav-item" data-view="activity"><span class="nav-icon">◷</span>Activity</button></nav>
+    <div class="nav-label members-label">PEOPLE <button id="inviteMini" class="plus-button" title="Invite teammate">+</button></div>
+    <div id="peopleList" class="people-list"></div>
+    <div class="sidebar-spacer"></div>
+    <div class="security-card"><div class="security-icon">✳</div><div><strong>End-to-end encrypted</strong><span>Only your team can read files.</span></div><span class="green-dot"></span></div>
+    <button class="profile-button"><span class="avatar avatar-you">AC</span><span><strong>Alex Chen</strong><small>Workspace admin</small></span><span class="more">···</span></button>
+  </aside>
+  <main class="main-area">
+    <header class="topbar"><div class="crumb"><span>Northstar Health</span><span class="crumb-sep">/</span><strong id="crumbTitle">Overview</strong></div><div class="top-actions"><span class="live-pill"><i></i><span id="liveLabel">Live</span></span><button class="icon-button" id="activityBell" aria-label="Activity">♧<i class="notification-dot"></i></button><span class="avatar avatar-you top-avatar">AC</span></div></header>
+    <section class="page" id="page-overview">
+      <div class="welcome-row"><div><div class="eyebrow"><span class="eyebrow-icon">✳</span> MONDAY, OCTOBER 6, 2026</div><h1>Your workspace,<br class="mobile-break"> <span>locked down.</span></h1><p class="intro">A secure place for your team to build what matters.</p></div><button class="button button-primary" id="uploadButton"><span>＋</span> Upload a file</button></div>
+      <div class="metric-grid"><article class="metric-card"><div class="metric-top"><span>Protected files</span><span class="metric-icon mint">▤</span></div><div class="metric-number" id="metricFiles">04</div><div class="metric-foot"><span class="tiny-lock">▣</span> All files encrypted on your device</div></article><article class="metric-card"><div class="metric-top"><span>Workspace members</span><span class="metric-icon lilac">♙</span></div><div class="metric-number" id="metricMembers">06</div><div class="metric-foot"><span class="online-avatars"><i></i><i></i><i></i></span> <span>3 teammates online</span></div></article><article class="metric-card"><div class="metric-top"><span>Storage used</span><span class="metric-icon peach">◴</span></div><div class="metric-number">2.4 <small>GB</small></div><div class="storage-line"><span></span></div><div class="metric-foot">of 10 GB encrypted storage</div></article></div>
+      <div class="content-grid"><section class="panel files-panel"><div class="panel-heading"><div><h2>Recent files</h2><p>Your team's latest protected work</p></div><button class="text-link" data-goto="files">View all <span>→</span></button></div><div class="file-table-head"><span>NAME</span><span>SHARED WITH</span><span>LAST UPDATED</span><span>SECURITY</span></div><div id="recentFiles" class="file-list"></div><button class="upload-drop" id="dropzone"><span class="upload-cloud">↑</span><span><strong>Drop a file here, or <u>browse</u></strong><small>Files are encrypted on your device before upload</small></span></button></section><section class="panel activity-panel"><div class="panel-heading"><div><h2>Live activity</h2><p>Happening across your workspace</p></div><span class="activity-live"><i></i>LIVE</span></div><div id="activityFeed" class="activity-feed"></div><button class="activity-bottom" data-goto="activity">View activity log <span>→</span></button></section></div>
+      <div class="trust-banner"><div class="trust-shield">◈</div><div><strong>Your files are yours alone.</strong><span>TeamVault encrypts every file before it leaves your device. We never have the keys to read your data.</span></div><button id="learnEncryption">How encryption works <span>↗</span></button></div>
+    </section>
+    <section class="page hidden" id="page-files"><div class="section-title"><div><div class="eyebrow">YOUR WORKSPACE</div><h1>Shared <span>files</span></h1><p>Encrypted folders keep each team's documents organized and private.</p></div><div style="display:flex;gap:8px"><button class="button button-secondary" id="createFolder">＋ New folder</button><button class="button button-primary" id="uploadButton2">＋ Upload a file</button></div></div><div class="panel full-files"><div class="file-toolbar"><div class="search-box">⌕ <input id="fileSearch" placeholder="Search files..."></div><select id="folderFilter" class="form-select" style="width:190px;padding:7px 9px;font-size:9px"><option value="all">▤ &nbsp;All shared folders</option></select></div><div id="folderChips" class="folder-chips"></div><div class="file-table-head"><span>NAME</span><span>SHARED WITH</span><span>LAST UPDATED</span><span>SECURITY</span></div><div id="allFiles" class="file-list"></div></div></section>
+    <section class="page hidden" id="page-vault"><div class="section-title"><div><div class="eyebrow">CURATED & PROTECTED</div><h1>Resource <span>library</span></h1><p>Trusted references, protocols, and team knowledge.</p></div><button class="button button-primary" id="vaultAdd">＋ Add a resource</button></div><div class="vault-hero"><span class="vault-spark">✳</span><div><strong>Knowledge stays in the team.</strong><span>Resources are encrypted and accessible only to workspace members.</span></div><span class="encrypted-chip">◈ &nbsp; E2E PROTECTED</span></div><div class="resource-grid" id="resourceGrid"></div></section>
+    <section class="page hidden" id="page-activity"><div class="section-title"><div><div class="eyebrow">WORKSPACE PULSE</div><h1>Activity <span>log</span></h1><p>A transparent timeline of what's happening across your team.</p></div><span class="live-pill"><i></i>Live updates</span></div><div class="panel activity-log"><div class="log-head">TODAY <span>All events are private to your workspace</span></div><div id="fullActivity" class="full-activity"></div></div></section>
+    <footer class="page-footer"><span>TeamVault © 2026</span><span>Private by design <b>·</b> Built for teams that care</span></footer>
+  </main>
+  <input type="file" id="filePicker" hidden multiple>
+  <div id="toast" class="toast"></div>
+  <dialog id="dialog" class="modal"><div class="modal-head"><div><span class="modal-kicker">TEAMVAULT</span><h2 id="modalTitle">Invite teammate</h2></div><button class="close-button" id="modalClose">×</button></div><div id="modalBody"></div></dialog>
+  <script src="/app.js" defer></script>
+</body>
+</html>
